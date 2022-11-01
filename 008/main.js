@@ -17,21 +17,6 @@ h. Clone: o objeto clona a si próprio, para isto, ele cria um novo objeto da cl
 atributos e retorna sua referência pelo método
 */
 
-const data = new Date();
-// const data = "2022-11-01";
-// console.log(data);
-
-function DateIsValid(newDate) {
-    const date =
-        newDate instanceof Date && !Number.isNaN(newDate)
-            ? newDate
-            : new Date("0001-01-01");
-
-    return date;
-}
-
-// console.log(DateIsValid(data));
-
 class Data {
     #date;
 
@@ -48,7 +33,56 @@ class Data {
     getDate() {
         return this.#date;
     }
+
+    getDay() {
+        return this.#date.getDate();
+    }
+
+    getMonth() {
+        return this.#date.getMonth() + 1;
+    }
+
+    getFullYear() {
+        return this.#date.getFullYear();
+    }
+
+    getStringMonth(month) {
+        const months = {
+            1: "January",
+            2: "February",
+            3: "March",
+            4: "April",
+            5: "May",
+            6: "June",
+            7: "July",
+            8: "August",
+            9: "September",
+            10: "October",
+            11: "November",
+            12: "December",
+            default: "Invalid Month!",
+        };
+
+        Object.freeze(months);
+
+        return months[month] || months["default"];
+    }
+    isLeapYear(year) {
+        if (!Number.isInteger(year) || year <= 0) {
+            return "Invalid Year!";
+        }
+        return (!(year % 4) && year % 100) ||
+            (!(year % 4) && !(year % 100) && !(year % 400))
+            ? true
+            : false;
+    }
 }
 
 const newDate = new Data(new Date());
+
 console.log(newDate.getDate());
+console.log(newDate.getDay());
+console.log(newDate.getMonth());
+console.log(newDate.getFullYear());
+console.log(newDate.getStringMonth(5));
+console.log(newDate.isLeapYear(2012));
