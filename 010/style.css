@@ -3,5 +3,7 @@
 }
 
 #msg {
+    height: fit-content;
+    width: fit-content;
     opacity: 0;
 }
