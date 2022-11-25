@@ -10,15 +10,20 @@ const items = [];
 // console.log(buttonClass);
 
 buttonAdd.addEventListener("click", function () {
-    if (input.value) items.push(Number(input.value));
+    if (input.value)
+        window.alert(
+            `You added the number ${input.value} at position ${
+                items.push(Number(input.value)) - 1
+            }.`
+        );
 });
 
 buttonDisplay.addEventListener("click", function () {
-    text.textContent = "";
     let html = "";
 
     items.forEach((value, index, arr) => {
-        html += `Element ${index} = ${value} \n`;
+        html += `Element ${index} = ${value} <br />`;
     });
-    text.textContent = html;
+
+    text.innerHTML = html; // Inner html replace the contents of an element
 });
