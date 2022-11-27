@@ -9,3 +9,15 @@ Expected Output:
 console.log(binary_Search(items, 1)); //0
 console.log(binary_Search(items, 5)); //4
 */
+
+function binarySearch(arr, number) {
+    if (!Array.isArray(arr) || !arr.length) throw "Invalid Array";
+    if (!Number.isFinite(number)) throw "Invalid number";
+
+    return arr.indexOf(number);
+}
+
+const sampleArray = [1, 2, 3, 4, 5, 7, 8, 9];
+
+console.log(binarySearch(sampleArray, 1));
+console.log(binarySearch(sampleArray, 5));
