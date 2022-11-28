@@ -6,3 +6,15 @@ the array will only be flattened a single level.
 Sample Data : console.log(flatten([1, [2], [3, [[4]]],[5,6]])); [1, 2, 3, 4, 5, 6]
 console.log(flatten([1, [2], [3, [[4]]],[5,6]], true)); [1, 2, 3, [[4]], 5, 6]
 */
+
+function flatten(arr, flatLevel) {
+    if (!Array.isArray(arr) || !arr.length) throw "Invalid Array";
+    flatLevel = flatLevel === true ? 1 : 10;
+
+    console.log(arr.flat(flatLevel));
+}
+
+const sampleArray = [1, [2], [3, [[4]]], [5, 6]];
+
+flatten(sampleArray);
+flatten(sampleArray, true);
